@@ -4,7 +4,7 @@ class Student:
     def __init__(self, name):
         self.name = name
         self._enrollments = []
-        self._grades = {}  # Dictionary to store grades per enrollment
+        self._grades = {}  
 
     def enroll(self, course, grade=None):
         if isinstance(course, Course):
