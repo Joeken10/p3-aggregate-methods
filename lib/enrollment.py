@@ -58,3 +58,33 @@ class Enrollment:
     def get_enrollment_date(self):
         return self._enrollment_date
     
+    @classmethod
+    def aggregate_enrollments_per_day(cls):
+        enrollment_count = {}
+        for enrollment in cls.all:
+            date = enrollment.get_enrollment_date().date()
+            enrollment_count[date] = enrollment_count.get(date, 0) + 1
+        return enrollment_count
+
+
+
+math = Course("Math")
+Computer_science = Course("Computer science")
+
+
+Sia = Student("Sia")
+Tim = Student("Tim")
+
+
+Sia.enroll(math, grade=85)
+Sia.enroll(Computer_science, grade=90)
+Tim.enroll(math, grade=88)
+
+
+print(f"Sia is enrolled in {Sia.course_count()} courses.")  
+
+
+print(f"Sia's average grade is {Sia.aggregate_average_grade()}") 
+
+enrollments_per_day = Enrollment.aggregate_enrollments_per_day()
+print(f"Enrollments per day: {enrollments_per_day}")
