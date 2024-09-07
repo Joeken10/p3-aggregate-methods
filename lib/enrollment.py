@@ -76,8 +76,8 @@ Sia = Student("Sia")
 Tim = Student("Tim")
 
 
-Sia.enroll(math, grade=85)
-Sia.enroll(Computer_science, grade=90)
+Sia.enroll(math, grade=80)
+Sia.enroll(Computer_science, grade=70)
 Tim.enroll(math, grade=88)
 
 
